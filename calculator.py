@@ -15,7 +15,7 @@ class CalcButton(ttk.Frame):
 
         s = ttk.Style()
         s.theme_use('alt')
-        s.configure('my.TButton', foreground='black', font=('Helvetica', '12', 'bold'))
+        s.configure('my.TButton', foreground='black', font=('Helvetica', '11', 'bold'))
 
         self.__b = ttk.Button(self, style='my.TButton', text=self.__text, command=self.__command)
         self.__b.pack(side=TOP, fill=BOTH, expand=True)
