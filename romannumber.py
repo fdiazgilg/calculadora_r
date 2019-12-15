@@ -1,4 +1,7 @@
 class RomanNumber():
+    value = 0
+    __romanValue = ''
+
     __valores = {'I':1, 'V': 5, 'X':10, 'L': 50, 'C':100, 'D': 500, 'M': 1000}
     __valores5 = { 'V': 5,  'L': 50,  'D': 500 } 
     __simbolosOrdenados = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
@@ -169,13 +172,16 @@ class RomanNumber():
         return numArabigoTotal
 
     def __str__(self):
-        return self.__romanValue
+        return "{}".format(self.__romanValue)    
+
+    def __int__(self):
+        return self.value
     
     def __repr__(self):
         return self.__romanValue
 
     def __add__(self, value):
-        resultado = self.value + int(value.value)
+        resultado = self.value + int(value)
         resultado = RomanNumber(resultado)
         return resultado
 
@@ -183,7 +189,7 @@ class RomanNumber():
         return self.__add__(value)
 
     def __sub__(self, value):
-        resultado = max(0, self.value - int(value.value))
+        resultado = max(0, self.value - int(value))
         resultado = RomanNumber(resultado)
         return resultado
 
@@ -191,7 +197,7 @@ class RomanNumber():
         return self.__sub__(value)
 
     def __mul__(self, value):
-        resultado = self.value * int(value.value)
+        resultado = self.value * int(value)
         resultado = RomanNumber(resultado)
         return resultado
 
@@ -199,7 +205,7 @@ class RomanNumber():
         return self.__mul__(value)
 
     def __truediv__(self, value):
-        resultado = self.value // int(value.value)
+        resultado = self.value // int(value)
         resultado = RomanNumber(resultado)
         return resultado
 
@@ -211,3 +217,6 @@ class RomanNumber():
 
     def __rdiv__(self, value):
         return self.__div__(value)
+    
+    def __lt__(self, value):
+        return int(self) < int(value)

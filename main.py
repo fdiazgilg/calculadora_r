@@ -9,7 +9,7 @@ class MainApp(Tk):
         Tk.__init__(self)
         self.title('Calculadora')
         self.geometry("{}x{}".format(WIDTHBTN*4, HEIGHTBTN*6))
-
+        
         c = Calculator(self)
         c.pack()
 
